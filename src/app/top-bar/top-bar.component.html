@@ -1,1 +1,10 @@
-<p>top-bar works!</p>
+<mat-toolbar>
+    <a mat-button (click)="toMovies()" target="_blank" class="top-bar-logo">myFlix</a>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="toProfile()" class="profile-icon" aria-label="Person icon-button">
+        Profile
+    </button> 
+    <button mat-button (click)="logOut()" class="profile-icon" aria-label="Logout icon-button">
+        Logout
+    </button>
+</mat-toolbar>

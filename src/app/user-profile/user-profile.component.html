@@ -1,1 +1,80 @@
-<p>user-profile works!</p>
+<app-top-bar></app-top-bar>
+<div class="profile">
+    <h1>Your Profile</h1>
+    <div class="grid">
+      <div>
+        <p>Username: {{ user.Username }}</p>
+        <p>Email: {{ user.Email }}</p>
+      </div>
+      <mat-card>
+        <mat-card-content>
+          <form class="profile-form">
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="userData.Username"
+                placeholder="Username"
+                type="text"
+                name="Username"
+
+              >
+              </mat-form-field>
+              <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="userData.Password"
+                type = "password"
+                placeholder="Password"
+                name="Password"
+              >
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="userData.Email"
+                type = "email"
+                placeholder="Email"
+                name="Email"
+              >
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="userData.Birthday"
+                type = "date"
+                placeholder="Birthday"
+                name="Birthday"
+              >
+            </mat-form-field>
+            <mat-card-actions>
+              <button
+                mat-raised-button
+                (click)="editUser()"
+                color="primary"
+              >
+                Update User
+              </button>
+              <button
+                class="delete-button"
+                mat-raised-button
+                (click)="deleteUser()"
+                color="warning"  
+              >
+              Delete Account
+            </button>
+            </mat-card-actions>
+          </form>
+          <div class="fav-movie">
+            Favorite Movies
+            <mat-card *ngFor="let movie of favoriteMovies;">
+              <mat-card-title class="card-title">{{movie.Title}}</mat-card-title>
+              <img class="card-image" src={{movie.imagepath}} alt= {{movie.Title}} />
+              <!-- <mat-icon class="fav-icon"
+            (click)="deleteFavoriteMovie(movie._id)"
+        >favorite_icon</mat-icon> -->
+            </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
